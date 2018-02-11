@@ -5,11 +5,11 @@ What is Livestock?
 
 Who made it and why?
 
-How is it working?
+[How is it working?](../blob/master/how_is_it_working.md)
 
-How to get started?
+[How to get started?](../blob/master/getstarted,md)
 
-Contributing
+[Contributing](../blob/master/contributing.md)
 
 Forum
 
