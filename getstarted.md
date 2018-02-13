@@ -13,7 +13,7 @@ Follow the instructions on their page.
 ## Download and install Livestock3d
 
 * Download the Livestock Grasshopper zip [here](https://github.com/livestock3d/livestock_grasshopper/archive/master.zip)
-* Create a folder at C:\Users\ocni\AppData\Roaming\McNeel\Rhinoceros\5.0\scripts called livestock3d
+* Create a folder at %appdata%\McNeel\Rhinoceros\5.0\scripts called livestock3d
 * Put the files from the zip in there. Take "My GH Script.gh" and place it on the Desktop.
 * Download the Livestock Python zip [here](https://github.com/livestock3d/livestock/archive/master.zip) 
 * Create a folder called C:\livestock\livestock3d
