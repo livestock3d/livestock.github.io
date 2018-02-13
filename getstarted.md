@@ -23,6 +23,8 @@ Follow the instructions on their page.
 ## Run My GH Script.gh
 * Open Rhino and Grasshopper
 * Open "My GH Script.gh"
-* Set the correct path to the Python Executor
-* Set the correct folder to My Component
-* Run My Component
+1) Set the correct path to the Python Executor
+2) Set the correct folder to My Component
+3) Run My Component
+
+![My_Script](My Script_edited.png)
