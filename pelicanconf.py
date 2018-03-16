@@ -1,3 +1,4 @@
+import datetime
 
 AUTHOR = 'Christian Kongsgaard'
 SITENAME = 'Livestock3D'
@@ -36,8 +37,21 @@ DEFAULT_PAGINATION = 10
 
 PLUGIN_PATHS = ['pelican-plugins']
 
-THEME = 'pelican-themes/pelican-bootstrap3'
-BOOTSTRAP_THEME = 'flatly'
+# Theme
+THEME = 'pelican-themes/MinimalXY'
+
+# Theme customizations
+MINIMALXY_CUSTOM_CSS = 'static/custom.css'
+MINIMALXY_FAVICON = 'favicon.ico'
+MINIMALXY_START_YEAR = 2009
+MINIMALXY_CURRENT_YEAR = datetime.date.today().year
+
+# Author
+AUTHOR_INTRO = u'Hello world! I’m John Doe.'
+AUTHOR_DESCRIPTION = u'Hello world! I’m John Doe. I like coffee, birds and Python.'
+AUTHOR_AVATAR = 'http://www.gravatar.com/avatar/abcdefghijkl?s=240'
+AUTHOR_WEB = 'http://mypersonalsite.com'
+
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGINS = ['i18n_subsites']
 
