@@ -1,10 +1,15 @@
-from __future__ import unicode_literals
 
 AUTHOR = 'Christian Kongsgaard'
-SITENAME = 'Livestock3d'
+SITENAME = 'Livestock3D'
 SITEURL = ''
 
 PATH = 'content'
+PAGE_PATHS = ['pages']
+ARTICLE_PATHS = ['posts']
+
+# Top menus
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = True
 
 TIMEZONE = 'Europe/Paris'
 
@@ -39,3 +44,4 @@ PLUGINS = ['i18n_subsites']
 I18N_TEMPLATES_LANG = 'en'
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
