@@ -4,6 +4,7 @@ Modified: 22-03-2018
 Status: published
 Authors: Christian Kongsgaard
 
+## Template
 Now when the Grasshopper component is written, it is time to write the template and the CPython script.
 Navigate to where you put the templates.py and open it.
 It can easily be found by in explorer typing:
@@ -80,3 +81,39 @@ We do that with sys.path.insert(). After that we can import livestock3d.
 
 After the imports we can call the function my_function from livestock3d. 
 The function is not yet created, but we will do that in the next paragraph.
+
+## Livestock3D in CPython
+
+We have now written both the code for the component and the template. The only piece missing is the CPython part.
+The CPython code is what does the actual functionality that we want. In this case to dublicate a text string.
+We will write the code in the C:\livestock3d\livestock3d.py file.
+
+```python
+def my_function(folder):
+ 
+    file = open(folder + '/data_file.txt', 'r')
+    my_lines = [line.strip()
+                for line in file.readlines()]
+    file.close()
+ 
+    repeat = int(my_lines[1].strip())
+    line_to_write = my_lines[0].strip()
+ 
+    result_file = open(folder + '/result.txt', 'w')
+ 
+    for i in range(repeat):
+        result_file.write(line_to_write + '\n')
+ 
+    result_file.close()
+ 
+    return None
+```
+
+my_function takes a path to a folder as input. It assumes that there is a file in that folder called: "data_file.txt".
+That file is created by the Grasshopper component, so make sure that the name is correct, otherwise my_function() can not run.
+After opening data_file.txt, the code turns the file into a list called my_lines. To be explicit we name two variables:
+"line_to_write" and "repeat". They are the first and second line in the list, respectively. Then we open "result.txt" and
+we write "line_to_write" "repeat" number of times. Thereafter, the file is closed and we are done.
+
+Now we should test our Grasshopper component! We will do that in the next post.
+[First Component Run]({filename}/posts/first_component_run.md)
