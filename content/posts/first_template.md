@@ -3,6 +3,7 @@ Date: 22-03-2018
 Modified: 22-03-2018
 Status: published
 Authors: Christian Kongsgaard
+Tags: python, grasshopper, tutorial, my_first_component
 
 ## Template
 Now when the Grasshopper component is written, it is time to write the template and the CPython script.

@@ -3,6 +3,7 @@ Date: 16-03-2018
 Modified: 22-03-2018
 Status: published
 Authors: Christian Kongsgaard           
+Tags: python, grasshopper, tutorial, my_first_component
 
 When you successfully installed the requirements for Livestock, then it is time to create your first component.
 Firstly you should open the Grasshopper script called "1 - My First Component.gh"

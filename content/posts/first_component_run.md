@@ -3,6 +3,7 @@ Date: 22-03-2018
 Modified: 22-03-2018
 Status: published
 Authors: Christian Kongsgaard
+Tags: python, grasshopper, tutorial, my_first_component
 
 ## Run Component
 You have to save and restart Grasshopper before we start testing the our component. We do that to make sure that Rhino has

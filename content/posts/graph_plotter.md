@@ -1,8 +1,9 @@
-Title: Graph Plotter
+Title: Graph Plotter Component
 Date: 22-03-2018
 Modified: 22-03-2018
 Status: published
 Authors: Christian Kongsgaard
+Tags: python, grasshopper, tutorial
 
 Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with 
 [Matplotlib](https://matplotlib.org/) and [NumPy](http://www.numpy.org/).
