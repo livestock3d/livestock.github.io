@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Graph Plotter Component &ndash; Livestock3D</title>
+
+    <!-- Meta -->
+    <meta name="description" content="Livestock3D &ndash; ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Social -->
+    <meta property="article:author" content="Christian Kongsgaard" />
+    <meta property="article:section" content="posts" />
+    <meta property="article:published_time" content="2018-03-22" />
+
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Graph Plotter Component"/>
+    <meta property="og:description" content="Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with Matplotlib and NumPy. If you heard of Python, you have probably heard of NumPy as well. NumPy is a library that can handle numerical operations in Python. NumPy is super fast …"/>
+    <meta property="og:site_name" content="Livestock3D" />
+    <meta property="og:url" content="/graph-plotter-component.html"/>
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Graph Plotter Component">
+    <meta name="twitter:description" content="Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with Matplotlib and NumPy. If you heard of Python, you have probably heard of NumPy as well. NumPy is a library that can handle numerical operations in Python. NumPy is super fast …">
+    <meta name="twitter:url" content="/graph-plotter-component.html">
+
+    <!-- Feed -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
+  </head>
+
+  <body>
+    <div class="w3-row w3-card w3-white">
+      <header id="header">
+        <a href="" id="header-logo" title="Home">CK</a>
+        <nav id="header-menu">
+          <ul>
+            <li><a href="/pages/about.html">About</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+
+
+    <br><br><br>
+
+    <article>
+      <header class="w3-container col-main">
+        <h1>Graph Plotter Component</h1>
+        <div class="post-info">
+          <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+            <span><time datetime="2018-03-22T00:00:00+01:00">to 22 marts 2018</time> in <a href="/category/posts.html" title="All articles in category posts">posts</a></span>
+          </div>
+          <div>
+            <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+              <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+            </span>
+            <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+              <a href="/tag/grasshopper.html" title="All articles with Grasshopper tag">#grasshopper</a>
+            </span>
+            <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+              <a href="/tag/tutorial.html" title="All articles with Tutorial tag">#tutorial</a>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <br>
+
+
+      <div class="col-main w3-container">
+        <section id="content">
+          <p>Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with 
+<a href="https://matplotlib.org/">Matplotlib</a> and <a href="http://www.numpy.org/">NumPy</a>.
+If you heard of Python, you have probably heard of NumPy as well. NumPy is a library that can handle numerical operations in Python.
+NumPy is super fast and is relying heavily on C code, which makes it very hard (if not impossible) to use in IronPython.
+Matplotlib is a plotting library, which works very well together with NumPy. The syntax of Matplotlib resemble Matlab's, 
+which makes it easy to use. </p>
+<p>We will use the image viewer from Ladybug Tools to view the plot when finished, so make sure to download it first. 
+Ladybug Tools can be found <a href="http://www.food4rhino.com/app/ladybug-tools">here</a>. Important is not download the [+] version, be get the legacy plugins.
+If you are not going to use Ladybug Tools again, you can also just download the viewer <a href="https://github.com/mostaphaRoudsari/ladybug/raw/master/userObjects/Ladybug_ImageViewer.gha">here</a></p>
+<h2>Grasshopper Component</h2>
+<p>We will make the Graph Plotter component, by modifying the component from the first tutorial.
+We just need to modify the component a little bit. You can start by opening the "1 - My First Component.gh" and save it as:
+"Graph Plotter.gh". There we can start changing the component. We do not need the y input on the component, so you can start removing that.
+Thereafter, double click the component and change the write_file function to:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Here we loop over the input and saves each value on a new line in the data file.
+We should change the file locations and the stuff inside the if statement:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Specify paths </span>
+<span class="n">txt_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/data_file.txt&#39;</span>
+<span class="n">template_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot_graph_template.py&#39;</span>
+<span class="n">result_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot.png&#39;</span>
+
+<span class="c1"># Run functions</span>
+<span class="k">if</span> <span class="n">run</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="p">(</span><span class="n">txt_file</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">write_template</span><span class="p">(</span><span class="s1">&#39;plot_graph&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+    <span class="n">run_template</span><span class="p">(</span><span class="n">py</span><span class="p">,</span> <span class="n">template_file</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We are done coding the component now. The only thing missing is to change the x input to a list and add an output. 
+By default all inputs to the Grasshopper Python Scripts Component is set to "item". We do not want that, in this case. 
+You change it by right-clicking the x and a menu will appear. In the bottom you can see "List Access". Click on that.
+<img alt="alt text" src="/images/graph_plotter_1.png"></p>
+<p>We also need the location of the plot, so create and extra output and call it: "results_file". Then the variable with the same 
+name will be outputted there.</p>
+<p>The full script in the component, looks like this:</p>
+<div class="highlight"><pre><span></span><span class="c1">#------------------------------------------------------------------------------#</span>
+<span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scriptcontext</span> <span class="kn">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">livestock3d</span>
+
+<span class="c1">#------------------------------------------------------------------------------#</span>
+<span class="c1"># Functions</span>
+
+<span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">write_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="n">livestock3d</span><span class="o">.</span><span class="n">pick_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">run_template</span><span class="p">(</span><span class="n">py_exe</span><span class="p">,</span> <span class="n">template_to_run</span><span class="p">):</span>
+    <span class="n">thread</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="n">py_exe</span><span class="p">,</span> <span class="n">template_to_run</span><span class="p">])</span>
+    <span class="n">thread</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">thread</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">load_file</span><span class="p">(</span><span class="nb">file</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">lines</span>
+
+<span class="k">def</span> <span class="nf">print_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+
+<span class="c1">#------------------------------------------------------------------------------#</span>
+<span class="c1"># Execution</span>
+
+<span class="c1"># Get CPython path from the other component</span>
+<span class="n">py</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">sticky</span><span class="p">[</span><span class="s2">&quot;PythonExe&quot;</span><span class="p">])</span>
+
+<span class="c1"># Make folder</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:/livestock3d/data&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+
+<span class="c1"># Specify paths </span>
+<span class="n">txt_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/data_file.txt&#39;</span>
+<span class="n">template_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot_graph_template.py&#39;</span>
+<span class="n">result_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot.png&#39;</span>
+
+<span class="c1"># Run functions</span>
+<span class="k">if</span> <span class="n">run</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="p">(</span><span class="n">txt_file</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">write_template</span><span class="p">(</span><span class="s1">&#39;plot_graph&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+    <span class="n">run_template</span><span class="p">(</span><span class="n">py</span><span class="p">,</span> <span class="n">template_file</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Template</h2>
+<p>The template can also be easily copied from my_first_template()
+We just need to change the function we call from: "my_function()" to "plot_graph()"</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes a template.</span>
+
+<span class="sd">    :param path: Path to write it to.</span>
+<span class="sd">    :type path: str</span>
+<span class="sd">    :return: The file name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">file_name</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/plot_graph_template.py&#39;</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# Imports</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;import sys</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;sys.path.insert(0, r&#39;C:\livestock3d&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;import livestock3d as ls</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# Run function</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ls.plot_graph(r&#39;&quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# Announce that template finished and create out file</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;print(&#39;Finished with template&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">file_name</span>
+</pre></div>
+
+
+<h2>CPython</h2>
+<p>Let us open livestock3d.py at</p>
+<blockquote>
+<p>C:\livestock3d</p>
+</blockquote>
+<p>First we need to import Numpy and Matplotlib. We do that with:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+
+<p>We create a new function at the bottom of the file called: "plot_graph()"
+It takes a folder path as input. We can uses NumPy's loadtxt() to load our data. loadtxt() is a easy way to read a file, 
+containing data, even larger amounts. We store the data from the file in the variable called "y_values".
+Besides y_values, we also need a series of x_values. We create a series from 0 to the length of y_values with NumPy's linspace.</p>
+<p>In the end we use Matplotlib to plot out a graph and save it with the name "plot.png"</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+    <span class="n">y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/data_file.txt&#39;</span><span class="p">)</span>
+    <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot.png&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+
+
+<h2>Run Component</h2>
+<p>Now we can head back to Grasshopper. Remember to restart Rhino before proceeding.
+Now we just needs some numbers to put into the component. You can generate in whatever way you want. In the image below,
+I have used a series component and an expression component to generate a polynominal. Connect the numbers to your component.
+Drag Ladybug Tools' Image Viewer onto the canvas and connect "result_file" from the graph component to "imagePath".
+Connect a boolean toggle to run and let the magic happen!</p>
+<p><img alt="alt text" src="/images/graph_plotter_2.png"></p>
+        </section>
+
+        <br><br><br>
+
+        <footer>
+          <div class="adjust-width">
+            <div id="author-block" class="w3-light-grey w3-border">
+              <div id="author-info">
+                <a href="http://mypersonalsite.com"><img style="width: 60px; height: 60px;" src="http://www.gravatar.com/avatar/abcdefghijkl?s=240" onerror="this.src='theme/images/avatar.png'" alt="Avatar"></a>
+                <div style="margin-left: 20px; margin-top: 15px;">
+                  <a href="http://mypersonalsite.com"><span id="author-name" class="w3-hover-text-dark-grey">Christian Kongsgaard</span></a>
+                  <p id="author-story">Hello world! I’m John Doe. I like coffee, birds and Python.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br><br><br>
+
+          <p style="font-size:10pt; font-style: italic;">Did you like this article? Share it with your friends!</p>
+          <div id="share" class="share">
+            <a href="http://www.facebook.com/sharer.php?u=/graph-plotter-component.html&amp;t=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-indigo">
+              <i class="fa fa-facebook"></i> <span>Facebook</span>
+            </a>
+            <a href="http://twitter.com/share?url=/graph-plotter-component.html&amp;text=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-blue">
+              <i class="fa fa-twitter"></i> <span>Twitter</span>
+            </a>
+            <a href="https://plus.google.com/share?url=/graph-plotter-component.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="w3-btn w3-red">
+              <i class="fa fa-google-plus"></i> <span>Google</span>
+            </a>
+          </div>
+
+          <br><br><br>
+
+
+
+        </footer>
+      </div>
+    </article>
+
+
+    <footer id="footer">
+      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
+        <span>
+          &copy;
+          2009&dash;2018          Christian Kongsgaard
+        </span>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>
