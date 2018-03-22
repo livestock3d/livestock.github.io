@@ -16,5 +16,3 @@ save_as: index.html
 [Contributing]({filename}/posts/contributing.md)
 
 Forum
-
-API
