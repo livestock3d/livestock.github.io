@@ -1,4 +1,4 @@
-Title: Graph Plotter Component
+Title: SSH Graph Plotter Component
 Date: 25-03-2018
 Modified: 25-03-2018
 Status: published
@@ -273,4 +273,37 @@ def plot_graph(path):
 
 ## On the Remote Machine
 
+So far we have not installed Conda on the remote machine yet. You can do that by, in the terminal, typing in: 
+````
+wget -c http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+````
+
+We also need a livestock_env environment. After the installation of Miniconda type in:
+````
+conda create -n livestock_env python=3.6 numpy matplotlib 
+````
+
+We also need to copy the files from "C:\livestock3d". If you are on Bash, you can do that by writing in the terminal:
+````
+cd ~/
+cp -r /mnt/c/livestock3d ~/
+````
+
+Now the files are copied. Go into the livestock3d folder in Bash and check if all the files are there:
+````
+cd livestock3d
+dir
+````
+
+It should return:
+````
+data  __init__.py  livestock3d.py  __pycache__  ssh  ssh.py
+````
+
+You should now be ready to run the component.
+
 ## Run Grasshopper
+Remember to restart Rhino if you changed something in McNeel\Rhinoceros\5.0\scripts\livestock3d.
+Make sure the Python Executor, SSH Connection is correctly setup and then you can run the plotter component.
