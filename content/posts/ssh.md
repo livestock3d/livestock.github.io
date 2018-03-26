@@ -306,4 +306,4 @@ You should now be ready to run the component.
 
 ## Run Grasshopper
 Remember to restart Rhino if you changed something in McNeel\Rhinoceros\5.0\scripts\livestock3d.
-Make sure the Python Executor, SSH Connection is correctly setup and then you can run the plotter component.
+Make sure the Python Executor, SSH Connection is correctly sat up and then you can run the plotter component.

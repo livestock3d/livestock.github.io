@@ -13,7 +13,7 @@ Matplotlib is a plotting library, which works very well together with NumPy. The
 which makes it easy to use. 
 
 We will use the image viewer from Ladybug Tools to view the plot when finished, so make sure to download it first. 
-Ladybug Tools can be found [here](http://www.food4rhino.com/app/ladybug-tools). Important is not download the [+] version, be get the legacy plugins.
+Ladybug Tools can be found [here](http://www.food4rhino.com/app/ladybug-tools). Important is to not download the [+] version, be get the legacy plugins.
 If you are not going to use Ladybug Tools again, you can also just download the viewer [here](https://github.com/mostaphaRoudsari/ladybug/raw/master/userObjects/Ladybug_ImageViewer.gha)
 
 ## Grasshopper Component
@@ -145,7 +145,7 @@ def plot_graph(path):
     file.write("import livestock3d as ls\n")
  
     file.write("# Run function\n")
-    file.write("ls.plot_graph(r'" + path + "')\n")
+    file.write("ls.plot_graph()\n")
  
     file.write("# Announce that template finished and create out file\n")
     file.write("print('Finished with template')\n")
@@ -175,13 +175,13 @@ Besides y_values, we also need a series of x_values. We create a series from 0 t
 In the end we use Matplotlib to plot out a graph and save it with the name "plot.png"
 
 ```python
-def plot_graph(folder):
-    y_values = np.loadtxt(folder + '/data_file.txt')
+def plot_graph():
+    y_values = np.loadtxt('data_file.txt')
     x_values = np.linspace(0, len(y_values), len(y_values))
  
     plt.figure()
     plt.plot(x_values, y_values)
-    plt.savefig(folder + '/plot.png')
+    plt.savefig('plot.png')
  
     return None
 ```
