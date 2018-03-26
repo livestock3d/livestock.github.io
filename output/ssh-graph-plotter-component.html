@@ -19,42 +19,44 @@
     <meta property="og:title" content="SSH Graph Plotter Component"/>
     <meta property="og:description" content="Welcome to the third tutorial! This tutorial will demonstrate how to create a SSH connection to a remote calculation machine. The reason behind this, is that if you have very heavy computations, then you should be able to send them to a remote machine, such as a high-end desktop, server …"/>
     <meta property="og:site_name" content="Livestock3D" />
-    <meta property="og:url" content="/ssh-graph-plotter-component.html"/>
+    <meta property="og:url" content="./ssh-graph-plotter-component.html"/>
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="SSH Graph Plotter Component">
     <meta name="twitter:description" content="Welcome to the third tutorial! This tutorial will demonstrate how to create a SSH connection to a remote calculation machine. The reason behind this, is that if you have very heavy computations, then you should be able to send them to a remote machine, such as a high-end desktop, server …">
-    <meta name="twitter:url" content="/ssh-graph-plotter-component.html">
+    <meta name="twitter:url" content="./ssh-graph-plotter-component.html">
 
     <!-- Feed -->
+    <link rel="alternate" type="application/atom+xml" href="https://livestock3d.github.io/feeds/all.atom.xml" title="Livestock3D Atom Feed" />
+    <link rel="alternate" type="application/atom+xml" href="https://livestock3d.github.io/feeds/posts.atom.xml" title="Livestock3D Categories Atom Feed" />
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
-    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
-    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
-    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
-    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    <link rel="stylesheet" type="text/css" href="./theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="./theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="./static/custom.css">
 
     <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/theme/js/jqcloud.min.js"></script>
+    <script src="./theme/js/jqcloud.min.js"></script>
   </head>
 
   <body>
     <div class="w3-row w3-card w3-white">
       <header id="header">
-        <a href="" id="header-logo" title="Home">CK</a>
+        <a href="." id="header-logo" title="Home">CK</a>
         <nav id="header-menu">
           <ul>
-            <li><a href="/pages/about.html">About</a></li>
-            <li><a href="/pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
-            <li><a href="/pages/how-is-it-working.html">How is it Working?</a></li>
-            <li><a href="/pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
+            <li><a href="./pages/about.html">About</a></li>
+            <li><a href="./pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
+            <li><a href="./pages/how-is-it-working.html">How is it Working?</a></li>
+            <li><a href="./pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
           </ul>
         </nav>
       </header>
@@ -69,20 +71,20 @@
         <h1>SSH Graph Plotter Component</h1>
         <div class="post-info">
           <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
-            <span><time datetime="2018-03-25T00:00:00+01:00">sø 25 marts 2018</time> in <a href="/category/posts.html" title="All articles in category posts">posts</a></span>
+            <span><time datetime="2018-03-25T00:00:00+01:00">sø 25 marts 2018</time> in <a href="./category/posts.html" title="All articles in category posts">posts</a></span>
           </div>
           <div>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              <a href="./tag/python.html" title="All articles with Python tag">#python</a>
             </span>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="/tag/grasshopper.html" title="All articles with Grasshopper tag">#grasshopper</a>
+              <a href="./tag/grasshopper.html" title="All articles with Grasshopper tag">#grasshopper</a>
             </span>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="/tag/tutorial.html" title="All articles with Tutorial tag">#tutorial</a>
+              <a href="./tag/tutorial.html" title="All articles with Tutorial tag">#tutorial</a>
             </span>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="/tag/ssh.html" title="All articles with Ssh tag">#ssh</a>
+              <a href="./tag/ssh.html" title="All articles with Ssh tag">#ssh</a>
             </span>
           </div>
         </div>
@@ -98,7 +100,7 @@ The reason behind this, is that if you have very heavy computations, then you sh
 such as a high-end desktop, server or cloud service. Currently the Livestock SSH Method only support remote machines with 
 Linux/Ubuntu as OS. If you do not have remote machine, then do not worry, you can still follow, this tutorial will work with
 <a href="https://docs.microsoft.com/en-us/windows/wsl/about">Bash for Windows</a>. We will modify the second 
-<a href="/graph-plotter-component.html">tutorial</a> so it does it processing on the remote machine instead of the local one.</p>
+<a href="./graph-plotter-component.html">tutorial</a> so it does it processing on the remote machine instead of the local one.</p>
 <h2>Installation</h2>
 <p>First you need to install Bash, follow this <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">guide</a>.
 Configure your SSH connection:</p>
@@ -132,7 +134,7 @@ conda install paramiko
 <h2>Grasshopper Script</h2>
 <p>Open "3 - SSH Graph Plotter.gh". In it you will find the Python Executor, the plotter component from before, the image viewer
 and a SSH Connection component. 
-<img alt="alt text" src="/images/ssh_1.png">
+<img alt="alt text" src="./images/ssh_1.png">
 SSH Connection works similar to Python Executor it that it just collects and holds the information
 concerning the SSH connection. You need to give it the IP, port, username and password for the SSH connection to work.
 When you have done that, we can modify the plotter component.</p>
@@ -409,13 +411,13 @@ I'm developed Livestock for my thesis.</p>
 
           <p style="font-size:10pt; font-style: italic;">Did you like this article? Share it with your friends!</p>
           <div id="share" class="share">
-            <a href="http://www.facebook.com/sharer.php?u=/ssh-graph-plotter-component.html&amp;t=Livestock3D%3A%20SSH%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-indigo">
+            <a href="http://www.facebook.com/sharer.php?u=./ssh-graph-plotter-component.html&amp;t=Livestock3D%3A%20SSH%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-indigo">
               <i class="fa fa-facebook"></i> <span>Facebook</span>
             </a>
-            <a href="http://twitter.com/share?url=/ssh-graph-plotter-component.html&amp;text=Livestock3D%3A%20SSH%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-blue">
+            <a href="http://twitter.com/share?url=./ssh-graph-plotter-component.html&amp;text=Livestock3D%3A%20SSH%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-blue">
               <i class="fa fa-twitter"></i> <span>Twitter</span>
             </a>
-            <a href="https://plus.google.com/share?url=/ssh-graph-plotter-component.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="w3-btn w3-red">
+            <a href="https://plus.google.com/share?url=./ssh-graph-plotter-component.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="w3-btn w3-red">
               <i class="fa fa-google-plus"></i> <span>Google</span>
             </a>
           </div>
@@ -434,7 +436,7 @@ I'm developed Livestock for my thesis.</p>
         <span>
           &copy;
           2018          Christian Kongsgaard
-        </span>
+ | <a href="https://livestock3d.github.io/feeds/all.atom.xml">Atom feed <i class="fa fa-rss" aria-hidden="true"></i></a>        </span>
       </div>
     </footer>
 

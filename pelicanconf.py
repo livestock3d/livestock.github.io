@@ -54,9 +54,9 @@ AUTHOR_AVATAR = 'contents/images/profile.jpg'
 AUTHOR_WEB = 'http://ocni-dtu.github.io'
 
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
-PLUGINS = ['i18n_subsites']
+#PLUGINS = ['']
 
-I18N_TEMPLATES_LANG = 'en'
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
