@@ -51,5 +51,5 @@ and see that all the files are still there:
 - my_first_template.py
 - results.txt
 
- If you want to know more take a look at the post [How is it working?]({filename}/posts/how_is_it_working.md), continue with
+ If you want to know more take a look at the post [How is it working?]({filename}/pages/how_is_it_working.md), continue with
  a our second [tutorial]({filename}/posts/graph_plotter.md) or even better: Make your own component.

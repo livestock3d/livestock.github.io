@@ -52,6 +52,9 @@
         <nav id="header-menu">
           <ul>
             <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
+            <li><a href="/pages/how-is-it-working.html">How is it Working?</a></li>
+            <li><a href="/pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
           </ul>
         </nav>
       </header>
@@ -94,7 +97,7 @@ NumPy is super fast and is relying heavily on C code, which makes it very hard (
 Matplotlib is a plotting library, which works very well together with NumPy. The syntax of Matplotlib resemble Matlab's, 
 which makes it easy to use. </p>
 <p>We will use the image viewer from Ladybug Tools to view the plot when finished, so make sure to download it first. 
-Ladybug Tools can be found <a href="http://www.food4rhino.com/app/ladybug-tools">here</a>. Important is not download the [+] version, be get the legacy plugins.
+Ladybug Tools can be found <a href="http://www.food4rhino.com/app/ladybug-tools">here</a>. Important is to not download the [+] version, be get the legacy plugins.
 If you are not going to use Ladybug Tools again, you can also just download the viewer <a href="https://github.com/mostaphaRoudsari/ladybug/raw/master/userObjects/Ladybug_ImageViewer.gha">here</a></p>
 <h2>Grasshopper Component</h2>
 <p>We will make the Graph Plotter component, by modifying the component from the first tutorial.
@@ -216,7 +219,7 @@ We just need to change the function we call from: "my_function()" to "plot_graph
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;import livestock3d as ls</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# Run function</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ls.plot_graph(r&#39;&quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ls.plot_graph()</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# Announce that template finished and create out file</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;print(&#39;Finished with template&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -243,13 +246,13 @@ It takes a folder path as input. We can uses NumPy's loadtxt() to load our data.
 containing data, even larger amounts. We store the data from the file in the variable called "y_values".
 Besides y_values, we also need a series of x_values. We create a series from 0 to the length of y_values with NumPy's linspace.</p>
 <p>In the end we use Matplotlib to plot out a graph and save it with the name "plot.png"</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
-    <span class="n">y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/data_file.txt&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">():</span>
+    <span class="n">y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data_file.txt&#39;</span><span class="p">)</span>
     <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">))</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/plot.png&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;plot.png&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
@@ -270,10 +273,11 @@ Connect a boolean toggle to run and let the magic happen!</p>
           <div class="adjust-width">
             <div id="author-block" class="w3-light-grey w3-border">
               <div id="author-info">
-                <a href="http://mypersonalsite.com"><img style="width: 60px; height: 60px;" src="http://www.gravatar.com/avatar/abcdefghijkl?s=240" onerror="this.src='theme/images/avatar.png'" alt="Avatar"></a>
+                <a href="http://ocni-dtu.github.io"><img style="width: 60px; height: 60px;" src="contents/images/profile.jpg" onerror="this.src='theme/images/avatar.png'" alt="Avatar"></a>
                 <div style="margin-left: 20px; margin-top: 15px;">
-                  <a href="http://mypersonalsite.com"><span id="author-name" class="w3-hover-text-dark-grey">Christian Kongsgaard</span></a>
-                  <p id="author-story">Hello world! I’m John Doe. I like coffee, birds and Python.</p>
+                  <a href="http://ocni-dtu.github.io"><span id="author-name" class="w3-hover-text-dark-grey">Christian Kongsgaard</span></a>
+                  <p id="author-story">I'm a former Master Student of the Technical University of Denmark (DTU).
+I'm developed Livestock for my thesis.</p>
                 </div>
               </div>
             </div>
@@ -307,7 +311,7 @@ Connect a boolean toggle to run and let the magic happen!</p>
       <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
         <span>
           &copy;
-          2009&dash;2018          Christian Kongsgaard
+          2018          Christian Kongsgaard
         </span>
       </div>
     </footer>

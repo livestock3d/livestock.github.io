@@ -1,18 +1,20 @@
 Title: Welcome to Livestock3D
 Date: 16-03-2018
-Modified: 16-03-2018
-Status: hidden
+Modified: 26-03-2018
+Status: published
 Authors: Christian Kongsgaard
-save_as: index.html
 
 [About Livestock]({filename}about.md)
 
-[How is it working?]({filename}/posts/how_is_it_working.md)
+[How is it working?]({filename}how_is_it_working.md)
 
 [How to get started?]({filename}/posts/getstarted.md)
 
 [My First Component]({filename}/posts/first_component.md)
 
-[Contributing]({filename}/posts/contributing.md)
+[Contributing]({filename}contributing.md)
 
-Forum
+### Forum
+
+Currently we don't have a forum, but if you have questions/suggestions or feedback you 
+are welcome to sumit a issue on [Github](https://github.com/livestock3d/livestock3d/issues)

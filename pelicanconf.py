@@ -43,14 +43,15 @@ THEME = 'pelican-themes/MinimalXY'
 # Theme customizations
 MINIMALXY_CUSTOM_CSS = 'static/custom.css'
 MINIMALXY_FAVICON = 'favicon.ico'
-MINIMALXY_START_YEAR = 2009
+MINIMALXY_START_YEAR = 2018
 MINIMALXY_CURRENT_YEAR = datetime.date.today().year
 
 # Author
-AUTHOR_INTRO = u'Hello world! I’m John Doe.'
-AUTHOR_DESCRIPTION = u'Hello world! I’m John Doe. I like coffee, birds and Python.'
-AUTHOR_AVATAR = 'http://www.gravatar.com/avatar/abcdefghijkl?s=240'
-AUTHOR_WEB = 'http://mypersonalsite.com'
+AUTHOR_INTRO = u'Hi everybody! Welcome to Livestock3D!'
+AUTHOR_DESCRIPTION = u"I'm a former Master Student of the Technical University of Denmark (DTU)." \
+                     u"\nI'm developed Livestock for my thesis."
+AUTHOR_AVATAR = 'contents/images/profile.jpg'
+AUTHOR_WEB = 'http://ocni-dtu.github.io'
 
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGINS = ['i18n_subsites']
