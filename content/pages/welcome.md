@@ -17,4 +17,4 @@ Authors: Christian Kongsgaard
 ### Forum
 
 Currently we don't have a forum, but if you have questions/suggestions or feedback you 
-are welcome to sumit a issue on [Github](https://github.com/livestock3d/livestock3d/issues)
+are welcome to submit a issue on [Github](https://github.com/livestock3d/livestock3d/issues)
