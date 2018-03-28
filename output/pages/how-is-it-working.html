@@ -15,45 +15,44 @@
     <meta property="og:title" content="How is it Working?"/>
     <meta property="og:description" content=""/>
     <meta property="og:site_name" content="Livestock3D" />
-    <meta property="og:url" content="../pages/how-is-it-working.html"/>
+    <meta property="og:url" content="/pages/how-is-it-working.html"/>
     <meta property="og:image" content="contents/images/profile.jpg"/>
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="How is it Working?">
     <meta name="twitter:description" content="">
-    <meta name="twitter:url" content="../pages/how-is-it-working.html">
+    <meta name="twitter:url" content="/pages/how-is-it-working.html">
     <meta name="twitter:image" content="contents/images/profile.jpg">
 
     <!-- Feed -->
-    <link rel="alternate" type="application/atom+xml" href="https://livestock3d.github.io/feeds/all.atom.xml" title="Livestock3D Atom Feed" />
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
-    <link rel="stylesheet" type="text/css" href="../theme/css/w3.css">
-    <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../theme/css/jqcloud.css">
-    <link rel="stylesheet" type="text/css" href="../theme/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../theme/css/pygments-highlight-github.css">
-    <link rel="stylesheet" type="text/css" href="../static/custom.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
 
     <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="../theme/js/jqcloud.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
   </head>
 
   <body>
     <div class="w3-row w3-card w3-white">
       <header id="header">
-        <a href=".." id="header-logo" title="Home">CK</a>
+        <a href="" id="header-logo" title="Home">CK</a>
         <nav id="header-menu">
           <ul>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
-            <li class="active" ><a href="../pages/how-is-it-working.html">How is it Working?</a></li>
-            <li><a href="../pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
+            <li class="active" ><a href="/pages/how-is-it-working.html">How is it Working?</a></li>
+            <li><a href="/pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
           </ul>
         </nav>
       </header>
@@ -96,7 +95,7 @@ process the data. Two things will happen:</p>
 <p>1)  Python will execute the instruction in the Python file and save the results as .xml, .txt and, or .obj files, 
 thereafter Grasshopper will read them.
 2)  The instructions in the Python file is to send the files to another computer for processing. </p>
-<p><img alt="alt text" src="../images/GH+Py+SSH.png"></p>
+<p><img alt="alt text" src="/images/GH+Py+SSH.png"></p>
 <p>In that case two Python files are send from Grasshopper: one that tells Python to send on the files and one with 
 instructions on how to process the files as in case 1. Python will establish a SSH connection (Secure Shell) to the 
 remote computer, wherethrough the files will be send. The remote computer will execute the Python instruction file and 
@@ -110,7 +109,7 @@ the workload, while the computation is ongoing. This is desirable especially in 
 Grasshopper spawns a subprocess, which makes CPython execute the template. The template itself is basically just a file, which
 imports the CPython library of Livestock and calls a function from it. The function call is then executed in pure CPython,
 enabling the user to take full advantage of it.</p>
-<p><img alt="alt text" src="../images/Livestock-Template-Method.png"></p>
+<p><img alt="alt text" src="/images/Livestock-Template-Method.png"></p>
 <h2>SSH Tunnel</h2>
 <p>The SSH functionality works like the template method. Livestock CMF Solver is the only component that is currently 
 utilizing the SSH method. The component takes different inputs and has some different internal processing but the core 
@@ -147,7 +146,7 @@ part of the Livestock CMF Solve component will be finished.</p>
         <span>
           &copy;
           2018          Christian Kongsgaard
- | <a href="https://livestock3d.github.io/feeds/all.atom.xml">Atom feed <i class="fa fa-rss" aria-hidden="true"></i></a>        </span>
+        </span>
       </div>
     </footer>
 

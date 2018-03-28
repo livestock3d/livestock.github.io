@@ -19,44 +19,42 @@
     <meta property="og:title" content="Graph Plotter Component"/>
     <meta property="og:description" content="Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with Matplotlib and NumPy. If you heard of Python, you have probably heard of NumPy as well. NumPy is a library that can handle numerical operations in Python. NumPy is super fast …"/>
     <meta property="og:site_name" content="Livestock3D" />
-    <meta property="og:url" content="./graph-plotter-component.html"/>
+    <meta property="og:url" content="/graph-plotter-component.html"/>
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Graph Plotter Component">
     <meta name="twitter:description" content="Welcome to the second tutorial! In this tutorial we will create a component that can plot a graph with Matplotlib and NumPy. If you heard of Python, you have probably heard of NumPy as well. NumPy is a library that can handle numerical operations in Python. NumPy is super fast …">
-    <meta name="twitter:url" content="./graph-plotter-component.html">
+    <meta name="twitter:url" content="/graph-plotter-component.html">
 
     <!-- Feed -->
-    <link rel="alternate" type="application/atom+xml" href="https://livestock3d.github.io/feeds/all.atom.xml" title="Livestock3D Atom Feed" />
-    <link rel="alternate" type="application/atom+xml" href="https://livestock3d.github.io/feeds/posts.atom.xml" title="Livestock3D Categories Atom Feed" />
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
-    <link rel="stylesheet" type="text/css" href="./theme/css/w3.css">
-    <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./theme/css/jqcloud.css">
-    <link rel="stylesheet" type="text/css" href="./theme/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./theme/css/pygments-highlight-github.css">
-    <link rel="stylesheet" type="text/css" href="./static/custom.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
 
     <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="./theme/js/jqcloud.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
   </head>
 
   <body>
     <div class="w3-row w3-card w3-white">
       <header id="header">
-        <a href="." id="header-logo" title="Home">CK</a>
+        <a href="" id="header-logo" title="Home">CK</a>
         <nav id="header-menu">
           <ul>
-            <li><a href="./pages/about.html">About</a></li>
-            <li><a href="./pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
-            <li><a href="./pages/how-is-it-working.html">How is it Working?</a></li>
-            <li><a href="./pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/contributing-to-livestock.html">Contributing to Livestock</a></li>
+            <li><a href="/pages/how-is-it-working.html">How is it Working?</a></li>
+            <li><a href="/pages/welcome-to-livestock3d.html">Welcome to Livestock3D</a></li>
           </ul>
         </nav>
       </header>
@@ -71,17 +69,17 @@
         <h1>Graph Plotter Component</h1>
         <div class="post-info">
           <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
-            <span><time datetime="2018-03-22T00:00:00+01:00">to 22 marts 2018</time> in <a href="./category/posts.html" title="All articles in category posts">posts</a></span>
+            <span><time datetime="2018-03-22T00:00:00+01:00">to 22 marts 2018</time> in <a href="/category/posts.html" title="All articles in category posts">posts</a></span>
           </div>
           <div>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="./tag/python.html" title="All articles with Python tag">#python</a>
+              <a href="/tag/python.html" title="All articles with Python tag">#python</a>
             </span>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="./tag/grasshopper.html" title="All articles with Grasshopper tag">#grasshopper</a>
+              <a href="/tag/grasshopper.html" title="All articles with Grasshopper tag">#grasshopper</a>
             </span>
             <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
-              <a href="./tag/tutorial.html" title="All articles with Tutorial tag">#tutorial</a>
+              <a href="/tag/tutorial.html" title="All articles with Tutorial tag">#tutorial</a>
             </span>
           </div>
         </div>
@@ -134,7 +132,7 @@ We should change the file locations and the stuff inside the if statement:</p>
 <p>We are done coding the component now. The only thing missing is to change the x input to a list and add an output. 
 By default all inputs to the Grasshopper Python Scripts Component is set to "item". We do not want that, in this case. 
 You change it by right-clicking the x and a menu will appear. In the bottom you can see "List Access". Click on that.
-<img alt="alt text" src="./images/graph_plotter_1.png"></p>
+<img alt="alt text" src="/images/graph_plotter_1.png"></p>
 <p>We also need the location of the plot, so create and extra output and call it: "results_file". Then the variable with the same 
 name will be outputted there.</p>
 <p>The full script in the component, looks like this:</p>
@@ -266,7 +264,7 @@ Now we just needs some numbers to put into the component. You can generate in wh
 I have used a series component and an expression component to generate a polynominal. Connect the numbers to your component.
 Drag Ladybug Tools' Image Viewer onto the canvas and connect "result_file" from the graph component to "imagePath".
 Connect a boolean toggle to run and let the magic happen!</p>
-<p><img alt="alt text" src="./images/graph_plotter_2.png"></p>
+<p><img alt="alt text" src="/images/graph_plotter_2.png"></p>
         </section>
 
         <br><br><br>
@@ -289,13 +287,13 @@ I'm developed Livestock for my thesis.</p>
 
           <p style="font-size:10pt; font-style: italic;">Did you like this article? Share it with your friends!</p>
           <div id="share" class="share">
-            <a href="http://www.facebook.com/sharer.php?u=./graph-plotter-component.html&amp;t=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-indigo">
+            <a href="http://www.facebook.com/sharer.php?u=/graph-plotter-component.html&amp;t=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-indigo">
               <i class="fa fa-facebook"></i> <span>Facebook</span>
             </a>
-            <a href="http://twitter.com/share?url=./graph-plotter-component.html&amp;text=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-blue">
+            <a href="http://twitter.com/share?url=/graph-plotter-component.html&amp;text=Livestock3D%3A%20Graph%20Plotter%20Component" target="_blank" class="w3-btn w3-blue">
               <i class="fa fa-twitter"></i> <span>Twitter</span>
             </a>
-            <a href="https://plus.google.com/share?url=./graph-plotter-component.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="w3-btn w3-red">
+            <a href="https://plus.google.com/share?url=/graph-plotter-component.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="w3-btn w3-red">
               <i class="fa fa-google-plus"></i> <span>Google</span>
             </a>
           </div>
@@ -314,7 +312,7 @@ I'm developed Livestock for my thesis.</p>
         <span>
           &copy;
           2018          Christian Kongsgaard
- | <a href="https://livestock3d.github.io/feeds/all.atom.xml">Atom feed <i class="fa fa-rss" aria-hidden="true"></i></a>        </span>
+        </span>
       </div>
     </footer>
 
