@@ -18,11 +18,11 @@ There is two branches: master and development.
 * Development is where you create the content
 
 When you have cloned the repo; checkout the development branch.
-Create all your changes and call:
+Create all your changes and in the terminal call:
 
 > pelican content -o output -s pelicanconf.py
 
-Commit and push your changes. Then call:
+Commit and push your changes. Then call in the terminal:
 
 > ghp-import -b master output
 
