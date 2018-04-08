@@ -15,7 +15,9 @@ We start by double clicking on the Grasshopper Canvas and type in "python" until
 Place it on the canvas.
 
 Double click the component. A new window will appear.
+
 ![alt text]({filename}/images/first_component_3.png)
+
 This component should be able to take in a text string and a number, send that to CPython using the Livestock Template Method,
 and return a text file, where the original text string is repeated the number of time we specified.
 We start by typing in some imports:
